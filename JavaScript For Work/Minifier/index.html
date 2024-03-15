@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minifier</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+  
+        a:link,a:visited,a:hover,a:active{
+          color: #888;font-size: 40px;
+  
+        }
+        .backicon{
+    position: absolute;
+  top: 20px;
+    left: 20px;
+    font-size: 40px;
+  }
+            </style>
+</head>
+<body>
+    <div class="container-fluid"><div class="backicon">
+        <a href="../../Layout/square glass card/index.html"><i class="fa fa-arrow-left"  aria-hidden="true"></i></a>
+     
+    
+    </div>
+        <div class="row">
+            <div class="col-md-5"><textarea  class="simplecode" placeholder="Paste or Type Your Data Here..... "></textarea></div>
+            <div class="col-md-2" > <p style="text-align: center;"> <button id="htmlMinify">Minify</button></p></div>
+            <div class="col-md-5"><textarea placeholder="Output" class="minifycode"></textarea></div>
+        </div>
+    </div>
+    <!-- 
+    <section class="codeminify">
+       
+               <textarea  class="simplecode" placeholder="Paste or Type Your Data Here..... "></textarea>
+        <button id="htmlMinify">Minify</button>
+        <textarea placeholder="Output" class="minifycode"></textarea>
+
+    
+     
+    </section> -->
+    <script>
+        var $tag = function(tag) {
+            return document.getElementsByTagName(tag);
+        }
+
+        function minify_html(type, input, output)
+        {
+            output.value = input.value
+            .replace(/\<\!--\s*?[^\s?\[][\s\S]*?--\>/g,'')
+            .replace(/\>\s*\</g,'><');
+        }
+
+
+        document.getElementById("htmlMinify").addEventListener("click", function(){
+            minify_html(
+                this.innerHTML, $tag('textarea')[0], $tag('textarea')[1]
+            );
+        }, false);
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript World</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo"><img src="../main logo/mail logo.png"></a>
+        <ul>
+            <li><a href="index.html" class="active">home</a></li>
+            <li style="text-align: center;"><a href="../square glass card/index.html">JS For Work</a></li>
+            <li style="text-align: center;"><a href="../circle glass card/index.html">JS For Fun</a></li>
+        </ul>
+    </header>
+    <section>
+        <img src="stars.png" id="stars">
+        <img src="moon.png" id="moon">
+        <img src="mountains_behind.png" id="mountains_behind">
+        <h2 id="text">JS World</h2>
+        <img src="mountains_front.png" id="mountains_front">
+    </section>
+    <div class="row" id="bar" style="padding-top:150px">
+
+        <div class="col-md-4">
+            <h1>About Us</h1>
+            <p style="text-align: justify;"> JavaScript is the world’s most popular programming language. JavaScript was invented by Brendan Eich in
+                1995 and became an ECMA standard in 1997. Javascript is most well-known as the scripting language. As of
+                2012, all of the rn browsers fully support JavaScript.
+                To be a programmer you must know about JavaScript(Js). Because it is a core part of the programming.
+                JavaScript is more important when you design a website user interface.We used JavaScript to portrait our
+                unique and interactive views.</p>
+        </div>
+        <div class="col-md-4">
+            <img src="images.jpeg">
+        </div>
+    </div>
+
+    <div class="body">
+        <h1 style="text-align: center;">OUR TEAM MEMBERS</h1>
+        <div class="box">
+
+            <div class="imgbx">
+                <img src="WhatsApp Image 2021-10-28 at 4.44.47 PM.jpeg">
+            </div>
+            <div class="content">
+                <h2>Muhammad Kaif Ali <br><span>Creative Web Designer</span></h2>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imgbx">
+                <img src="a.jpeg" style="width: 640px;">
+            </div>
+            <div class="content">
+                <h2>Neha Mehmood <br><span>Team Lead</span></h2>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imgbx">
+                <img src="WhatsApp Image 2021-10-28 at 2.48.54 AM.jpeg">
+            </div>
+            <div class="content">
+                <h2>Rumaisa Amir<br><span>Creative Web Designer</span></h2>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="row" id="nav-bar" style="padding-top:150px">
+        <div class="col-md-4">
+
+            <div class="contact-section">
+
+                <div class="contact-info">
+                    <div><i class="fas fa-map-marker-alt"></i>SD-1, Block A North Nazimabad Town, Karachi,Pakistan</div>
+                    <div><i class="fas fa-envelope"></i>fiveinone321@gmail.com</div>
+                    <div><i class="fas fa-phone"></i>+92 333 15000 72</div>
+                    <div><i class="fas fa-clock"></i>Mon - Fri 9:00 AM To 9:00 PM</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="contact-form col-md-12">
+                <h2>Contact Us</h2>
+                <form class="contact" action="" method="post">
+                    <input type="text" name="name" class="text-box" placeholder="Your Name" required="required" />
+                    <input type="email" name="email" class="text-box" placeholder="Your Email" required="required" />
+                    <textarea name="message" class="text-area" rows="5" placeholder="Your Message"
+                        required="required"></textarea>
+                    <input type="submit" name="submit" class="btn" value="Send" />
+                </form>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <script>
+        let stars = document.getElementById('stars');
+        let moon = document.getElementById('moon');
+        let mountains_behind = document.getElementById('mountains_behind');
+        let text = document.getElementById('text');
+        let btn = document.getElementById('btn');
+        let mountains_front = document.getElementById('mountains_front');
+        let header = document.querySelector('header');
+
+        window.addEventListener('scroll', function () {
+            let value = window.scrollY;
+            stars.style.left = value * 0.25 + 'px';
+            moon.style.top = value * 1.05 + 'px';
+            mountains_behind.style.top = value * 0.5 + 'px';
+            mountains_front.style.top = value * 0 + 'px';
+            text.style.marginRight = value * 4 + 'px';
+            text.style.marginTop = value * 1.5 + 'px';
+            btn.style.marginTop = value * 1.5 + 'px';
+            header.style.top = value * 0.5 + 'px';
+
+        })
+    </script>
+</body>
+
+</html>

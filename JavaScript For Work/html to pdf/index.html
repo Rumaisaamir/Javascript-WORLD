@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to PDF</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+      
+            a:link,a:visited,a:hover,a:active{
+              color: #888;font-size: 40px;
+      
+            }
+            .backicon{
+        position: absolute;
+      top: 20px;
+        left: 20px;
+        font-size: 40px;
+      }
+                </style>
+</head>
+<body>
+    <div class="backicon">
+        <a href="../../Layout/square glass card/index.html"><i class="fa fa-arrow-left"  aria-hidden="true"></i></a>
+     
+    
+    </div>
+    <div id="html2pdf">
+        <p contenteditable="true"></p>
+        <!-- <textarea contenteditable="true" id="t"></textarea> -->
+    </div>
+    <div class="btn">
+        <button id="exportPDF">Export PDF</button>
+    </div>
+    <script>
+        let htmlPDF = document.getElementById("html2pdf");
+        // let htmlPDF = document.getElementById("t").innerHTML;
+        let exportPDF = document.getElementById("exportPDF");
+        exportPDF.onclick = (e) => html2pdf(htmlPDF);
+    </script>
+</body>
+</html>

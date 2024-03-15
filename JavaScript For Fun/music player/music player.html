@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+   <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+  
+        a:link,a:visited,a:hover,a:active{
+          color: #888;font-size: 40px;
+  
+        }
+        .backicon{
+    position: absolute;
+  top: 20px;
+    left: 20px;
+    font-size: 40px;
+  }
+            </style>
+</head>
+
+<body>  <div class="backicon">
+            <a href="../../Layout/circle glass card/index.html"><i class="fa fa-arrow-left"  aria-hidden="true"></i></a>
+         
+        
+        </div>
+    <div class="main_div">
+      
+        <div class="music_container">
+            <h2 id="title">IGNITE</h2>
+            <h3 id="artist">Alan Walker</h3>
+            <div class="img_container">
+               <img src="images/song1.jpg" alt="">
+               <div>
+                 <audio src="song/song1.mp3" ></audio>
+                 
+                 <div class="music_controls">
+                    <i class="fas fa-backward" id="prev" title="Previous"></i>
+                    <i class="fas fa-play main_button" id="Play" title="Play"></i>
+                    <i class="fas fa-forward" id="next" title="Next"></i>
+
+                 </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const music = document.querySelector("audio");
+    const img = document.querySelector("img");
+    const play = document.getElementById("Play");
+       const artist = document.getElementById("artist");
+        const title = document.getElementById("title");
+
+       const prev = document.getElementById("prev");
+       const Next = document.getElementById("next");
+
+       const songs = [{
+           name:"song1",
+           title: "IGNITE",
+           artist: "Alan Walker",
+       },
+       {
+           name:"song2",
+           title: "HASTA LUEGO",
+           artist: "HRVY",
+       },
+       {
+           name:"song3",
+           title: "TALK",
+           artist: "Salvatore Ganacci",
+       },
+       
+       {
+           name:"song4",
+           title: "ME ENAMORE",
+           artist: "Shakira",
+       },
+       {
+           name:"song5",
+           title: "ALL NIGHT",
+           artist: "Icona Pop",
+       },
+       {
+           name:"song6",
+           title: "REALITY",
+           artist: "Lost Frequencies",
+       },
+       {
+           name:"song7",
+           title: "LIMBO",
+           artist: "Daddy Yankee",
+       },
+       {
+           name:"song8",
+           title: "JUST A DREAM",
+           artist: "Nelly",
+       },
+       {
+           name:"song9",
+           title: "APOLLO",
+           artist: "Nightcore",
+       },
+       {
+           name:"song10",
+           title: "CRIMINAL",
+           artist: "Britney Spears",
+       },
+       {
+           name:"song11",
+           title: "ASTRONAUT IN THE OCEAN ",
+           artist: "Masked Wolf",
+       },
+    ];
+
+       let isPlaying = false;
+
+    const  playMusic = () =>{
+      isPlaying = true;
+      music.play(); 
+      play.classList.replace('fa-play',"fa-pause"); 
+      img.classList.add("anime");
+    };
+
+    const pauseMusic = () =>{
+      isPlaying = false;
+      music.pause(); 
+      play.classList.replace("fa-pause","fa-play"); 
+      img.classList.remove("anime");
+    };
+
+    play.addEventListener('click',() => {
+        isPlaying ?  pauseMusic() :  playMusic();
+        
+    });
+     //changing the music data//
+
+     const loadsong = (songs) =>{
+        title.textContent = songs.title;
+        artist.textContent = songs.artist;
+        music.src = "song/"+songs.name+".mp3";
+        img.src ="images/" +songs.name+".jpg";
+     };
+     songindex = 0;
+    //loadsong(songs[songindex]);
+    const nextSong = () => {
+       songindex = (songindex + 1) % songs.length;
+       loadsong(songs[songindex]);
+       playMusic();
+    };
+
+    const prevSong = () => {
+       songindex = (songindex - 1 + songs.length) % songs.length;
+       loadsong(songs[songindex]);
+       playMusic();
+    };
+
+    next.addEventListener("click",nextSong);
+    prev.addEventListener("click",prevSong);
+</script>
+</html>
